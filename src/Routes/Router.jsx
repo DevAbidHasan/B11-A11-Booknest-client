@@ -7,6 +7,7 @@ import TermsOfServices from "../pages/Shared/TermsOfServices";
 import PrivacyPolicy from "../pages/Shared/PrivacyPolicy";
 import DeveloperResources from "../pages/Shared/DeveloperResources";
 import CookiesPolicy from "../pages/Shared/CookiesPolicy";
+import ErrorPage from "../pages/Shared/ErrorPage";
 
 export const router = createBrowserRouter([
     {
@@ -38,9 +39,14 @@ export const router = createBrowserRouter([
                 Component : DeveloperResources
             },
             {
-            path :"/cookies-policy",
-            Component: CookiesPolicy
+                path :"/cookies-policy",
+                Component: CookiesPolicy
             },
+            
         ]
+    },
+    {
+        path :"*",
+        Component : ErrorPage
     }
 ])
