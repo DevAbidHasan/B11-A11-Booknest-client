@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import BookSlider from './BannerSlider';
 
 const Home = () => {
     return (
@@ -9,7 +10,7 @@ const Home = () => {
                     BookNest || Homepage
                 </title>
             </Helmet>
-            <h2 className='my-15 poppins text-center font-black text-4xl'>this is home</h2>
+            <BookSlider></BookSlider>
            
         </div>
     );
