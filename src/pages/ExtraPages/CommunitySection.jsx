@@ -42,7 +42,7 @@ const CommunitySection = () => {
                        {/* <RiUserCommunityLine className="text-amber-600" size={80}/> */}
                        <img src={years} className='w-[70px]' alt="" />
                        <h2 className="lg:text-3xl text-xl sm:text-2xl poppins font-black text-center text-blue-600">
-                             <CountUp enableScrollSpy={true} scrollSpyOnce={true}  end={7} duration={3}/>+
+                             0<CountUp enableScrollSpy={true} scrollSpyOnce={true}  end={7} duration={3}/>+
                        </h2>
                        <p className="inter  text-gray-500">Years of Service</p>
                     </div>
