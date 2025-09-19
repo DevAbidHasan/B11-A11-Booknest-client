@@ -93,9 +93,9 @@ const Navbar = () => {
        {
         isOpen ? <div className='bg-gray-700 overflow-y-hidden fixed z-10 top-0 pt-10 left-0 w-screen flex flex-col items-center justify-center gap-5 duration-300 ease-in min-h-[380px] max-h-screen'>
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/all-plants">All Plants</NavLink>
-          <NavLink to="/add-plant">Add Plant</NavLink>
-          <NavLink to={`/my-plants/${encodeURIComponent(user?.email)}`}>My Plants</NavLink>
+          <NavLink to="/all-books">All Books</NavLink>
+          <NavLink to="/add-book">Add Book</NavLink>
+          <NavLink to={`/my-plants/${encodeURIComponent(user?.email)}`}>Borrowed Books</NavLink>
           <div >
             
             {
@@ -114,10 +114,10 @@ const Navbar = () => {
        }
         <div className='md:flex text-gray-300  md:gap-5 lg:gap-11 items-center justify-center hidden '>
           <NavLink to="/" className="hover:text-white ">Home</NavLink>
-          <NavLink  className="hover:text-white " to="/all-plants">All Plants</NavLink>
-          <NavLink to="/add-plant" className="hover:text-white ">Add Plant</NavLink>
+          <NavLink  className="hover:text-white " to="/all-books">All Books</NavLink>
+          <NavLink to="/add-book" className="hover:text-white ">Add Book</NavLink>
           <NavLink to={`/my-plants/${encodeURIComponent(user?.email)}`}
- className="hover:text-white ">My Plants</NavLink>
+ className="hover:text-white ">Borrowed Books</NavLink>
           {/* <NavLink>{user.email}</NavLink> */}
           
         </div>

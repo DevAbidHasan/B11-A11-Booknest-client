@@ -8,6 +8,8 @@ import PrivacyPolicy from "../pages/Shared/PrivacyPolicy";
 import DeveloperResources from "../pages/Shared/DeveloperResources";
 import CookiesPolicy from "../pages/Shared/CookiesPolicy";
 import ErrorPage from "../pages/Shared/ErrorPage";
+import AddBook from "../components/AddBook";
+import AllBooks from "../components/AllBooks";
 
 export const router = createBrowserRouter([
     {
@@ -42,6 +44,15 @@ export const router = createBrowserRouter([
                 path :"/cookies-policy",
                 Component: CookiesPolicy
             },
+            {
+                path :"/add-book",
+                Component : AddBook
+            },
+            {
+                path :"/all-books",
+                Component : AllBooks,
+                loader : () => fetch("http://localhost:3000/books")
+            }
             
         ]
     },

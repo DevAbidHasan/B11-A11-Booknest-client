@@ -16,7 +16,7 @@ const ErrorPage = () => {
             {/* <img className='max-w-[300px]' src={errorImage} alt="" /> */}
             <Helmet>
                 <title>
-                    BookNest || Page Not Found - 404
+                    Page Not Found - 404 Error
                 </title>
             </Helmet>
             <div>
