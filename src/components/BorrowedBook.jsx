@@ -4,8 +4,8 @@ import { FaUserEdit } from "react-icons/fa";
 import viewImg from "../../public/details.png"
 import { Link } from 'react-router';
 
-const Book = ({book}) => {
-    const {photo,_id, book_name, author_name, quantity, rating, category, description, content} = book;
+const BorrowdBook = ({book}) => {
+    const {photo, book_name, author_name, quantity, rating, category, description, content} = book;
     return (
         <div >
             <div className='hover:border space-y-2 hover:border-blue-300 border border-gray-200 hover:bg-white p-5 bg-gray-50 rounded-xl'>
@@ -17,19 +17,10 @@ const Book = ({book}) => {
                 <p className='text-center text-green-600 font-bold inter'>{category}</p>
                 <div className='flex items-center justify-around'>
                     
-                        <div className='flex items-center justify-center gap-2'>
-                            <img title='Book Rating' src={ratingImg} alt="" />
-                            <h2 className='font-bold poppins'>{rating}</h2>
-                        </div>
-                   
-                    
-                        <Link to={`/book-details/${book._id}`}><img className='w-[28px]' title="View Details" src={viewImg} alt="" /></Link>
-                        <Link to={`/update-book/${_id}`}>
-                            <FaUserEdit title='Update Book' size={22}/>
-                        </Link>
-                        <h2 className={quantity > 0 ? "text-green-600" : "text-red-500"}>
-                            Quantity : {quantity}
-                        </h2>
+                        <Link className='btn btn-info hover:btn-secondary' to={`/book-details/${book._id}`}>Details</Link>
+                        <button className='btn hover:btn-warning btn-primary'>Return Book</button>
+                        {/* <FaUserEdit title='Update Book' size={22}/> */}
+                       
                   
                 </div>
             </div>
@@ -37,4 +28,4 @@ const Book = ({book}) => {
     );
 };
 
-export default Book;
+export default BorrowdBook;

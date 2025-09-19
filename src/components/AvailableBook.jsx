@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 
 const AvailableBook = ({book}) => {
 
-    const {photo, book_name, author_name, quantity, rating, category, description, content} = book;
+    const {photo,_id, book_name, author_name, quantity, rating, category, description, content} = book;
     
     return (
         <div className=''>
@@ -29,7 +29,9 @@ const AvailableBook = ({book}) => {
                                            
                                             
                                                 <Link to={`/book-details/${book._id}`}><img className='w-[28px]' title="View Details" src={viewImg} alt="" /></Link>
-                                                <FaUserEdit title='Update Book' size={22}/>
+                                               <Link to={`/update-book/${_id}`}>
+                                                 <FaUserEdit title='Update Book' size={22}/>
+                                               </Link>
                                             
                                            
                                                 <h2>Quantity : {quantity}</h2>

@@ -61,7 +61,7 @@ const Navbar = () => {
   },[])
 
   return (
-   <div className='bg-gray-900 poppins py-2'>
+   <div className='bg-gray-900 poppins py-2.5'>
      <nav className=' w-11/12 mx-auto text-white'>
       <div className='flex items-center justify-between'>
         <div className='z-20  text-2xl font-bold'>
@@ -95,7 +95,7 @@ const Navbar = () => {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/all-books">All Books</NavLink>
           <NavLink to="/add-book">Add Book</NavLink>
-          <NavLink to={`/my-plants/${encodeURIComponent(user?.email)}`}>Borrowed Books</NavLink>
+          <NavLink to="/borrowed-books">Borrowed Books</NavLink>
           <div >
             
             {
@@ -116,8 +116,7 @@ const Navbar = () => {
           <NavLink to="/" className="hover:text-white ">Home</NavLink>
           <NavLink  className="hover:text-white " to="/all-books">All Books</NavLink>
           <NavLink to="/add-book" className="hover:text-white ">Add Book</NavLink>
-          <NavLink to={`/my-plants/${encodeURIComponent(user?.email)}`}
- className="hover:text-white ">Borrowed Books</NavLink>
+          <NavLink to="/borrowed-books" className="hover:text-white ">Borrowed Books</NavLink>
           {/* <NavLink>{user.email}</NavLink> */}
           
         </div>

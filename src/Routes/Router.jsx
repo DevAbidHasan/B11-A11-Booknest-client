@@ -11,6 +11,8 @@ import ErrorPage from "../pages/Shared/ErrorPage";
 import AddBook from "../components/AddBook";
 import AllBooks from "../components/AllBooks";
 import BookDetails from "../components/BookDetails";
+import BorrowedBooks from "../components/BorrowedBooks";
+import UpdateBook from "../components/UpdateBook";
 
 export const router = createBrowserRouter([
     {
@@ -58,6 +60,16 @@ export const router = createBrowserRouter([
                 path : "/book-details/:id",
                 loader : ({params})=> fetch(`http://localhost:3000/book-details/${params.id}`),
                 Component : BookDetails
+            },
+            {
+                path :"/borrowed-books",
+                loader : () => fetch("http://localhost:3000/borrowed-books"),
+                Component : BorrowedBooks
+            },
+            {
+                path : "/update-book/:id",
+                loader : ({params}) => fetch(`http://localhost:3000/update-book/${params.id}`),
+                Component : UpdateBook
             }
             
         ]

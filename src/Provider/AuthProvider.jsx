@@ -8,6 +8,10 @@ const AuthProvider = ({children}) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [borrowed, setBorrowed] = useState([]);
+    // const [borrowed, setBorrowed]= useState(books);
+    const [remainingQuantity, setRemainingQuantity] =useState(0);
+    const [clicked, setClicked]=useState(false);
 
     const createUser =(email, password) =>{
         setLoading(true);
@@ -43,7 +47,13 @@ const AuthProvider = ({children}) => {
         login,
         logout,
         updateUser,
-        createUser
+        createUser,
+        borrowed,
+        setBorrowed,
+        setRemainingQuantity,
+        remainingQuantity,
+        clicked,
+        setClicked
 
     }
 
