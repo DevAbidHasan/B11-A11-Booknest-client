@@ -24,9 +24,9 @@ const Book = ({book}) => {
                     
                         <img className='w-[28px]' title="View Details" src={viewImg} alt="" />
                         <FaUserEdit title='Update Book' size={22}/>
-                    
-                   
-                        <h2>Quantity : {quantity}</h2>
+                        <h2 className={quantity > 0 ? "text-green-600" : "text-red-500"}>
+                            Quantity : {quantity}
+                        </h2>
                   
                 </div>
             </div>

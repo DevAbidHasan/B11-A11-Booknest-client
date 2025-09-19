@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { useLoaderData } from "react-router";
 import Book from "./Book";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import AvailableBook from "./AvailableBook";
 
 const AllBooks = () => {
   const books = useLoaderData();
@@ -9,6 +10,14 @@ const AllBooks = () => {
   const handleTab=(id)=>{
     setActiveTab(id);
   }
+
+//   const availableBookPromise = fetch("http://localhost:3000/available-books").then(res=>res.json())
+//   const availableBooks = use(availableBookPromise);
+//   console.log("available", availableBooks);
+
+// const data = fetch("http://localhost:3000/available-books").then(res=>res.json())
+// const availableBooks = use(data);
+
   return (
     <div className="w-11/12 mx-auto mt-5">
      <Tabs className=" ">
@@ -26,10 +35,10 @@ const AllBooks = () => {
         </div>
 
         {/* Right Side: Tab Panels */}
-        <div className="col-span-3  bg-white p-6 rounded-r-lg shadow overflow-y-auto">
+        <div className="col-span-3 bg-white p-6 rounded-r-lg shadow overflow-y-auto">
           <TabPanel>
-            <h2 className="text-2xl text-center text-blue-600 font-bold poppins mb-4">All Books</h2>
-            <div className='grid grid-cols-2 gap-6'>
+            <h2 className="text-2xl text-center text-blue-600 font-bold poppins mb-6">All Books</h2>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
                 {
                     books.map((book, index) => <Book key={index} book={book}></Book>)
                 }
@@ -37,11 +46,58 @@ const AllBooks = () => {
           </TabPanel>
 
           <TabPanel>
-            <h2 className="text-2xl text-center text-blue-600 font-bold poppins mb-4">Available Books</h2>
+            <h2 className="text-2xl text-center text-blue-600 font-bold poppins mb-0">Available Books</h2>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
+                {
+                    books.map((book, index) => <AvailableBook key={index} book={book}></AvailableBook>)
+                }
+            </div>
           </TabPanel>
         </div>
       </div>
-    </Tabs>
+      </Tabs>
+
+      {/* for smaller devices */}
+       <div className="md:hidden">
+      <Tabs>
+        {/* Tab List */}
+        <TabList className="flex flex-col items-center space-y-2 pt-3">
+          <Tab onClick={()=>handleTab("tab-1")} className={`p-2 text-center ${activeTab === "tab-1" ? "bg-blue-600 text-white" : "bg-white"}  rounded font-bold inter cursor-pointer w-full hover:bg-blue-400 hover:text-white`}>
+               All Books
+            </Tab>
+          <Tab onClick={()=>handleTab("tab-2")} className={`p-2 text-center ${activeTab === "tab-2" ? "bg-green-600 text-white" : "bg-white"} inter rounded font-bold w-full hover:text-white cursor-pointer hover:bg-green-400`}>
+               Available Books
+            </Tab>
+        </TabList>
+
+        {/* Tab Panels */}
+        <TabPanel>
+           <h2 className="text-2xl text-center  text-blue-600 font-bold poppins my-7.5">
+            All Books
+          </h2>
+          <div className="grid grid-cols-1 gap-6">
+            {
+                books.map((book,index) => <Book key={index} book={book}></Book>)
+            }
+          </div>
+          
+        </TabPanel>
+
+        <TabPanel>
+          <h2 className="text-2xl text-center -mb-4 text-green-600 font-bold poppins mt-7">
+            Available Books
+          </h2>
+          <div className="grid grid-cols-1 gap-6">
+            {
+                books.map((book,index) => <AvailableBook key={index} book={book}></AvailableBook>)
+            }
+          </div>
+        </TabPanel>
+      </Tabs>
+    </div>
+
+
+    
     </div>
   );
 };
