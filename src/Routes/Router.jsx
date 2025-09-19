@@ -13,6 +13,8 @@ import AllBooks from "../components/AllBooks";
 import BookDetails from "../components/BookDetails";
 import BorrowedBooks from "../components/BorrowedBooks";
 import UpdateBook from "../components/UpdateBook";
+import Dashboard from "../components/Dashboard";
+import PrivateRoute from "../Provider/PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -49,7 +51,11 @@ export const router = createBrowserRouter([
             },
             {
                 path :"/add-book",
-                Component : AddBook
+                 element : (
+                    <PrivateRoute>
+                        <AddBook></AddBook>
+                    </PrivateRoute>
+                )
             },
             {
                 path :"/all-books",
@@ -59,17 +65,37 @@ export const router = createBrowserRouter([
             {
                 path : "/book-details/:id",
                 loader : ({params})=> fetch(`http://localhost:3000/book-details/${params.id}`),
-                Component : BookDetails
+                 element : (
+                    <PrivateRoute>
+                        <BookDetails></BookDetails>
+                    </PrivateRoute>
+                )
             },
             {
                 path :"/borrowed-books",
                 loader : () => fetch("http://localhost:3000/borrowed-books"),
-                Component : BorrowedBooks
+                 element : (
+                    <PrivateRoute>
+                        <BorrowedBooks></BorrowedBooks>
+                    </PrivateRoute>
+                )
             },
             {
                 path : "/update-book/:id",
                 loader : ({params}) => fetch(`http://localhost:3000/update-book/${params.id}`),
-                Component : UpdateBook
+                element : (
+                    <PrivateRoute>
+                        <UpdateBook></UpdateBook>
+                    </PrivateRoute>
+                )
+            },
+            {
+                path: "/dashboard",
+                element :(
+                    <PrivateRoute>
+                        <Dashboard></Dashboard>
+                    </PrivateRoute>
+                )
             }
             
         ]

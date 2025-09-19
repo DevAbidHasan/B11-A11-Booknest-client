@@ -1,14 +1,15 @@
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { ToastContainer } from 'react-toastify';
-import { auth } from '../../Provider/AuthProvider';
+import { auth, AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
 
+    const {login}=useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const handleGoogleLogin =(e) =>{
@@ -39,7 +40,29 @@ const Login = () => {
 
     const handleLogin=(e)=>{
         e.preventDefault();
-        alert("manual login clicked");
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        login(email, password)
+        .then(res =>{
+            Swal.fire({
+                title:"Congratulations !!!",
+                text :"Login Successful",
+                icon :"success",
+                timer:2000,
+                button:"OK"
+            })
+            navigate(`${location.state ? location.state : "/"}`);
+        })
+        .catch(error => {
+            Swal.fire({
+                title:"Failure !!!",
+                text :"Login Failed, Try again",
+                icon :"error",
+                timer:2000,
+                button:"OK"
+            })
+        })
+        
     }
 
     return (

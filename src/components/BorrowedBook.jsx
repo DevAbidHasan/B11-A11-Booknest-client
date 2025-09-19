@@ -4,7 +4,7 @@ import { FaUserEdit } from "react-icons/fa";
 import viewImg from "../../public/details.png"
 import { Link } from 'react-router';
 
-const BorrowdBook = ({book}) => {
+const BorrowedBook = ({book}) => {
     const {photo, book_name, author_name, quantity, rating, category, description, content} = book;
     return (
         <div >
@@ -28,4 +28,4 @@ const BorrowdBook = ({book}) => {
     );
 };
 
-export default BorrowdBook;
+export default BorrowedBook;
