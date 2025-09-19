@@ -10,6 +10,7 @@ import CookiesPolicy from "../pages/Shared/CookiesPolicy";
 import ErrorPage from "../pages/Shared/ErrorPage";
 import AddBook from "../components/AddBook";
 import AllBooks from "../components/AllBooks";
+import BookDetails from "../components/BookDetails";
 
 export const router = createBrowserRouter([
     {
@@ -52,6 +53,11 @@ export const router = createBrowserRouter([
                 path :"/all-books",
                 Component : AllBooks,
                 loader : () => fetch("http://localhost:3000/books")
+            },
+            {
+                path : "/book-details/:id",
+                loader : ({params})=> fetch(`http://localhost:3000/book-details/${params.id}`),
+                Component : BookDetails
             }
             
         ]

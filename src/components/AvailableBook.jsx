@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ratingImg from "../../public/rating.png"
 import { FaUserEdit } from "react-icons/fa";
 import viewImg from "../../public/details.png"
+import { Link } from 'react-router';
 
 const AvailableBook = ({book}) => {
 
@@ -27,7 +28,7 @@ const AvailableBook = ({book}) => {
                                                 </div>
                                            
                                             
-                                                <img className='w-[28px]' title="View Details" src={viewImg} alt="" />
+                                                <Link to={`/book-details/${book._id}`}><img className='w-[28px]' title="View Details" src={viewImg} alt="" /></Link>
                                                 <FaUserEdit title='Update Book' size={22}/>
                                             
                                            
