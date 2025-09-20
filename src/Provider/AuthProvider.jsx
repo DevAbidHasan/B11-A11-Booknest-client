@@ -12,6 +12,7 @@ const AuthProvider = ({children}) => {
     // const [borrowed, setBorrowed]= useState(books);
     const [remainingQuantity, setRemainingQuantity] =useState(0);
     const [clicked, setClicked]=useState(false);
+    const [books, setBooks] = useState(null);
 
     const createUser =(email, password) =>{
         setLoading(true);

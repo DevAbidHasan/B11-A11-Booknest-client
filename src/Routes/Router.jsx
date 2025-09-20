@@ -15,6 +15,7 @@ import BorrowedBooks from "../components/BorrowedBooks";
 import UpdateBook from "../components/UpdateBook";
 import Dashboard from "../components/Dashboard";
 import PrivateRoute from "../Provider/PrivateRoute";
+import Category from "../components/Category";
 
 export const router = createBrowserRouter([
     {
@@ -96,6 +97,11 @@ export const router = createBrowserRouter([
                         <Dashboard></Dashboard>
                     </PrivateRoute>
                 )
+            },
+            {
+                path :"/books/:category",
+                loader : ({params}) => fetch (`http://localhost:3000/books/${params.category}`),
+                Component : Category
             }
             
         ]
